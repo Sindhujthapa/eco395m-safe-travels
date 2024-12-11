@@ -124,7 +124,9 @@ def main():
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
 
     # Dropdown for city selection
-    cities = get_available_cities()
+    with st.spinner('Fetching available cities...'):
+        cities = get_available_cities()
+    # cities = get_available_cities()
     city_name = st.selectbox("Select your city", options=["Select city"] + cities) 
 
     # Dropdown for number of courts
