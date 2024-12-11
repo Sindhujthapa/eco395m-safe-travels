@@ -158,6 +158,8 @@ def main():
     if city_name != "Select a city":  # Ensure the user selects an actual city
         courts = get_courts_by_city(city_name)
         
+        if not courts or len(courts) == 0:
+            st.warning(f "No courts found for {city_name} withat least {min_courts} courts.")
 
         if courts:
             st.subheader(f"Court Information for {city_name}:" + (f" (Minimum {min_courts} courts)" if min_courts else ""))
