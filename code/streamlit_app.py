@@ -6,6 +6,13 @@ import requests
 from dotenv import load_dotenv
 from PIL import Image
 
+st.set_page_config(
+    page_title="PickleSpots - Your Pickleball Finder",
+    page_icon="🎾",
+    layout="wide",  # Can be "centered" or "wide"
+    initial_sidebar_state="expanded",
+)
+
 st.title("PickleSpots")
 st.text("This is an app designed to recommend a nearby pickleball court and corresponding outfit suggestions for any vacationer traveling to a destination of the top 50 most-visited cities in the United States. This recommendation will be based on proximity, weather, and the number of courts available at the nearby places.")
 load_dotenv()
@@ -118,7 +125,6 @@ def main():
         st.image(image, width=1000)
     except FileNotFoundError:
         st.warning("Image file not found. Please ensure the file is in the working directory.")
-
 
     st.title("Pickleball Court Finder")
     st.markdown("Find pickleball courts in your city and receive advice on what to wear based on the weather!")
